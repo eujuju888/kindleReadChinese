@@ -1,0 +1,228 @@
+/* Kindle 即時翻譯 - Panel Styles */
+
+#kindle-translator-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 360px;
+  height: 100vh;
+  background: #1a1a2e;
+  color: #e8e8f0;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 14px;
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -4px 0 24px rgba(0,0,0,0.4);
+  border-left: 1px solid #2a2a4a;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#kindle-translator-panel.kt-collapsed {
+  transform: translateX(340px);
+}
+
+/* Header */
+#kt-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: #16213e;
+  border-bottom: 1px solid #2a2a4a;
+  flex-shrink: 0;
+}
+
+#kt-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #c9b99a;
+  letter-spacing: 0.5px;
+}
+
+#kt-icon {
+  font-size: 18px;
+}
+
+#kt-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#kt-translate-btn {
+  background: #c9b99a;
+  color: #1a1a2e;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  font-family: inherit;
+}
+
+#kt-translate-btn:hover {
+  background: #e0cfb0;
+  transform: translateY(-1px);
+}
+
+#kt-translate-btn:disabled {
+  background: #4a4a6a;
+  color: #8a8aaa;
+  cursor: not-allowed;
+  transform: none;
+}
+
+#kt-clear-btn,
+#kt-close-btn {
+  background: transparent;
+  color: #6a6a8a;
+  border: 1px solid #2a2a4a;
+  padding: 5px 9px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+#kt-clear-btn:hover,
+#kt-close-btn:hover {
+  color: #c9b99a;
+  border-color: #c9b99a;
+}
+
+/* Status bar */
+#kt-status {
+  padding: 8px 16px;
+  font-size: 12px;
+  display: none;
+  flex-shrink: 0;
+  border-bottom: 1px solid #2a2a4a;
+}
+
+.kt-status-info {
+  background: #1e2a4a;
+  color: #7aa7d9;
+}
+
+.kt-status-success {
+  background: #1a2e1a;
+  color: #7acc7a;
+}
+
+.kt-status-error {
+  background: #2e1a1a;
+  color: #cc7a7a;
+}
+
+/* Content Area */
+#kt-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  scrollbar-width: thin;
+  scrollbar-color: #2a2a4a transparent;
+}
+
+#kt-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+#kt-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#kt-content::-webkit-scrollbar-thumb {
+  background: #2a2a4a;
+  border-radius: 2px;
+}
+
+/* Placeholder */
+#kt-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: #4a4a6a;
+  text-align: center;
+  gap: 12px;
+}
+
+.kt-placeholder-icon {
+  font-size: 48px;
+  font-weight: 700;
+  color: #2a2a4a;
+  font-family: 'Georgia', serif;
+  line-height: 1;
+}
+
+#kt-placeholder p {
+  font-size: 13px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Translation Body */
+.kt-translation-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.kt-paragraph-pair {
+  border-left: 2px solid #2a2a4a;
+  padding-left: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.kt-original {
+  color: #6a6a8a;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 0;
+  font-style: italic;
+}
+
+.kt-translated {
+  color: #ddd8cc;
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 0;
+  font-family: 'Georgia', 'Noto Serif TC', '思源宋體', serif;
+}
+
+/* Footer */
+#kt-footer {
+  padding: 10px 16px;
+  background: #16213e;
+  border-top: 1px solid #2a2a4a;
+  flex-shrink: 0;
+}
+
+#kt-auto-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #6a6a8a;
+  cursor: pointer;
+  user-select: none;
+}
+
+#kt-auto-label:hover {
+  color: #c9b99a;
+}
+
+#kt-auto-toggle {
+  accent-color: #c9b99a;
+  cursor: pointer;
+}

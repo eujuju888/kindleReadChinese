@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kindle 即時翻譯</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      width: 300px;
+      background: #1a1a2e;
+      color: #e8e8f0;
+      font-family: 'Georgia', serif;
+      font-size: 14px;
+    }
+
+    .header {
+      background: #16213e;
+      padding: 16px 18px;
+      border-bottom: 1px solid #2a2a4a;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-icon { font-size: 22px; }
+
+    .header-text h1 {
+      font-size: 15px;
+      color: #c9b99a;
+      font-weight: 600;
+    }
+
+    .header-text p {
+      font-size: 11px;
+      color: #6a6a8a;
+      margin-top: 2px;
+    }
+
+    .body {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 11px;
+      color: #8a8aaa;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .field input {
+      width: 100%;
+      background: #0f0f1e;
+      border: 1px solid #2a2a4a;
+      color: #e8e8f0;
+      padding: 9px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-family: monospace;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .field input:focus {
+      border-color: #c9b99a;
+    }
+
+    .field input::placeholder {
+      color: #3a3a5a;
+    }
+
+    .field-hint {
+      font-size: 11px;
+      color: #4a4a6a;
+      margin-top: 5px;
+      line-height: 1.4;
+    }
+
+    .field-hint a {
+      color: #7aa7d9;
+      text-decoration: none;
+    }
+
+    .btn-save {
+      width: 100%;
+      background: #c9b99a;
+      color: #1a1a2e;
+      border: none;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .btn-save:hover {
+      background: #e0cfb0;
+      transform: translateY(-1px);
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #2a2a4a;
+      margin: 0;
+    }
+
+    .actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-action {
+      flex: 1;
+      background: #16213e;
+      color: #c9b99a;
+      border: 1px solid #2a2a4a;
+      padding: 9px;
+      border-radius: 6px;
+      font-size: 12px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+      text-align: center;
+    }
+
+    .btn-action:hover {
+      border-color: #c9b99a;
+      background: #1e2a4e;
+    }
+
+    .status-msg {
+      font-size: 12px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      text-align: center;
+      display: none;
+    }
+
+    .status-msg.success {
+      background: #1a2e1a;
+      color: #7acc7a;
+      display: block;
+    }
+
+    .status-msg.error {
+      background: #2e1a1a;
+      color: #cc7a7a;
+      display: block;
+    }
+
+    .footer {
+      padding: 10px 18px;
+      border-top: 1px solid #2a2a4a;
+      font-size: 11px;
+      color: #3a3a5a;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-icon">📖</div>
+    <div class="header-text">
+      <h1>Kindle 即時翻譯</h1>
+      <p>繁體中文 · Claude AI</p>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="field">
+      <label>Claude API Key</label>
+      <input type="password" id="apiKey" placeholder="sk-ant-api03-..." />
+      <p class="field-hint">
+        前往 <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a> 取得 API Key
+      </p>
+    </div>
+
+    <div id="statusMsg" class="status-msg"></div>
+
+    <button class="btn-save" id="saveBtn">儲存設定</button>
+
+    <hr class="divider">
+
+    <div class="actions">
+      <button class="btn-action" id="translateBtn">▶ 翻譯此頁</button>
+      <button class="btn-action" id="toggleBtn">◨ 顯示/隱藏</button>
+    </div>
+  </div>
+
+  <div class="footer">翻譯由 Claude Sonnet 4 提供</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
