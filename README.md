@@ -13,10 +13,10 @@ Kindle 即時翻譯 - Chrome 擴充功能
 Claude API Key（前往 console.anthropic.com 申請）
 Chrome 瀏覽器
 
-888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888
-下載 kindle-vision
-打開 chrome://extensions/ 
-點「Load unpacked」→ 選 kindle-vision 資料夾
-點擴充功能圖示 → 填入 API Key → 儲存
-打開 Kindle 書本
-點「翻譯此頁」
+88888888888888888888888888888888888888888888888888888888888
+1. 下載 kindle-vision
+2. 打開 chrome://extensions/ 
+3. 點「Load unpacked」→ 選 kindle-vision 資料夾
+4. 點擴充功能圖示 → 填入 API Key → 儲存
+5. 打開 Kindle 書本
+6. 點「翻譯此頁」
